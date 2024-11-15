@@ -5,7 +5,7 @@
 // https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/chrome/ChromeOptions.html
 // https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/edge/EdgeOptions.html
 // https://www.selenium.dev/documentation/webdriver/browsers/safari/
-// https://www.selenium.dev/documentation/webdriver/browsers/internet_explorer/
+// https://www.selenium.dev/selenium/docs/api/py/webdriver_ie/selenium.webdriver.ie.options.html
 
 package Selenium2;
 
@@ -39,6 +39,9 @@ public class main {
 		// 1.Define selected Browser Driver
 		if (browser.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--start-maximized");
+			options.addArguments("--incognito");
+			options.addArguments("--disable-infobars");
 			options.addArguments("--disable-search-engine-choice-screen");
 			options.addArguments(
 					"--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
@@ -48,6 +51,7 @@ public class main {
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
 			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+			options.addArguments("--kiosk"); //Open Browser in maximized mode
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
@@ -55,18 +59,19 @@ public class main {
 			driver = new EdgeDriver(options);
 		} else if (browser.equalsIgnoreCase("ie")) {
 			InternetExplorerOptions options = new InternetExplorerOptions();
+			options.getBrowserName();
 			driver = new InternetExplorerDriver(options);
 		}
 
 		// 2.get Browser URL
 		driver.get(utils.webUrl);
 		driver.getTitle();
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(20));
 
 		// 3. Ending
 		Thread.sleep(10000);
-		driver.quit();
+		//driver.quit();
 	}
 
 }
