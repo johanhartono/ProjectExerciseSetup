@@ -13,9 +13,10 @@
 		<log4j-version>2.19.0</log4j-version>
 		<testng.version>7.10.2</testng.version>
 		<maven-surefire-plugin-version>3.0.0-M8</maven-surefire-plugin-version>
-		<webdrivermanager1.version>5.8.0</webdrivermanager1.version>
-		<webdrivermanager2.version>4.25.0</webdrivermanager2.version>
-		<webdrivermanager3.version>4.4.0</webdrivermanager3.version>
+		<webdrivermanagerChrome.version>5.8.0</webdrivermanagerChrome.version>
+		<webdrivermanagerFireFox.version>4.25.0</webdrivermanagerFireFox.version>
+		<webdrivermanagerEdge.version>4.4.0</webdrivermanagerEdge.version>
+		<webdrivermanagerIE.version>4.26.0</webdrivermanagerIE.version>
 	</properties>
 	<dependencies>
 
@@ -38,17 +39,22 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>${webdrivermanager1.version}</version>
+			<version>${webdrivermanagerChrome.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-firefox-driver</artifactId>
-			<version>${webdrivermanager2.version}</version>
+			<version>${webdrivermanagerFireFox.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-opera-driver</artifactId>
-			<version>${webdrivermanager3.version}</version>
+			<version>${webdrivermanagerEdge.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-ie-driver</artifactId>
+			<version>${webdrivermanagerIE.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
