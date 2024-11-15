@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="294486fc-e6df-4b9c-adcb-b6d1f275e81c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Setup/utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Setup/utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +51,26 @@
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/SDET/SeleniumPS",
+    "last_opened_file_path": "D:/SDET/ProjectExerciseSetup",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.apiDELETE.DeleteData">
+  <component name="RunManager" selected="Application.main">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Selenium1.main" />
+      <module name="com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Selenium1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="apiDELETE.DeleteData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="testFramework" />
       <extension name="coverage">
@@ -68,21 +83,6 @@
       <option name="MAIN_CLASS_NAME" value="RestAssured.apiDELETE" />
       <option name="METHOD_NAME" value="DeleteData" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="apiPOST" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="testFramework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="RestAssured.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="RestAssured" />
-      <option name="MAIN_CLASS_NAME" value="RestAssured.apiPOST" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.main" />
         <item itemvalue="JUnit.apiDELETE.DeleteData" />
         <item itemvalue="JUnit.apiPUT.UpdatePartialData" />
         <item itemvalue="JUnit.apiPUT.CreateData" />
         <item itemvalue="JUnit.apiPOST.CreateData" />
-        <item itemvalue="JUnit.apiPOST" />
       </list>
     </recent_temporary>
   </component>
