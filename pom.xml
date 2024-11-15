@@ -2,15 +2,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ProjectSetup</groupId>
-	<artifactId>com.hansiatech.com</artifactId>
+	<groupId>ProjectExerciseSetup</groupId>
+	<artifactId>com</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ProjectSetup</name>
-	<description>Project Setup</description>
+	<name>ProjectExerciseSetup</name>
+	<description>Project Exercise Setup</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<selenium.version>4.24.0</selenium.version>
 		<log4j-version>2.19.0</log4j-version>
+		<testng.version>7.10.2</testng.version>
 		<maven-surefire-plugin-version>3.0.0-M8</maven-surefire-plugin-version>
 		<webdrivermanager1.version>5.8.0</webdrivermanager1.version>
 		<webdrivermanager2.version>4.25.0</webdrivermanager2.version>
@@ -23,6 +24,14 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
+		</dependency>
+
+		<!-- TestNG -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- Web Driver Manager -->
@@ -40,6 +49,12 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-opera-driver</artifactId>
 			<version>${webdrivermanager3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.1</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
