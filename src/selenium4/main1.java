@@ -21,10 +21,9 @@
 //2. Explicit
 //3. Fluent
 
-package Selenium3;
+package selenium4;
 
 import java.time.Duration;
-import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,14 +37,13 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Setup.utils;
 
-public class main2 {
+public class main1 {
 
 	WebDriver driver;
 
@@ -68,13 +66,11 @@ public class main2 {
 			driver = new ChromeDriver(options);
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
-			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
 			options.addArguments("--kiosk"); // Open Browser in maximized mode
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
-			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
 			driver = new EdgeDriver(options);
 		} else if (browser.equalsIgnoreCase("ie")) {
@@ -87,8 +83,7 @@ public class main2 {
 		driver.get(utils.webUrl);
 		driver.getTitle();
 		// driver.manage().window().maximize();
-		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
 		// 3. Web Elements
 
