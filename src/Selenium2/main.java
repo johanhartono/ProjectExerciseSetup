@@ -12,6 +12,7 @@ package Selenium2;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,10 +39,12 @@ public class main {
 	@Parameters("browser")
 
 	public void main(String browser) throws Exception {
-				
+
 		// 1.Define selected Browser Driver
 		if (browser.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			options.setEnableDownloads(true);
 			options.addArguments("--start-maximized");
 			options.addArguments("--incognito");
 			options.addArguments("--disable-infobars");
@@ -54,10 +57,13 @@ public class main {
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
 			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-			//options.addArguments("--kiosk"); //Open Browser in maximized mode no close button
+			//options.addArguments("-headless");
+			// options.addArguments("--kiosk"); //Open Browser in maximized mode no close
+			// button
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
+			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
 			driver = new EdgeDriver(options);
 		} else if (browser.equalsIgnoreCase("ie")) {
@@ -69,12 +75,12 @@ public class main {
 		// 2.get Browser URL
 		driver.get(utils.webUrl);
 		driver.getTitle();
-		//driver.manage().window().maximize();
+		// driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(20));
 
 		// 3. Ending
 		Thread.sleep(10000);
-		//driver.quit();
+		// driver.quit();
 	}
 
 }
