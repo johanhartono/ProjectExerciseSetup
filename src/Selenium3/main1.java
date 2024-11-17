@@ -83,7 +83,7 @@ public class main1 {
 		driver.get(utils.webUrl);
 		driver.getTitle();
 		// driver.manage().window().maximize();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
 		// 3. Web Elements
 		
@@ -94,10 +94,9 @@ public class main1 {
 		UserEmail.sendKeys("johan@johan.com");
 
 		// Web Element by Name/cssSelector
-		WebElement LabelAutomationTesting = wait
-				.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector("title"))));
+		WebElement LabelAutomationTesting = driver.findElement(By.cssSelector("title"));
 		System.out.println(LabelAutomationTesting.getText());
-
+		
 		// Web Element by Class Name
 		WebElement TitleName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.className("entry-title"))));
 		System.out.println(TitleName.getText());

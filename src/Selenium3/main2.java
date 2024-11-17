@@ -68,11 +68,13 @@ public class main2 {
 			driver = new ChromeDriver(options);
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
+			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
 			options.addArguments("--kiosk"); // Open Browser in maximized mode
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
+			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
 			driver = new EdgeDriver(options);
 		} else if (browser.equalsIgnoreCase("ie")) {
@@ -97,8 +99,7 @@ public class main2 {
 		UserEmail.sendKeys("johan@johan.com");
 
 		// Web Element by Name/cssSelector
-		WebElement LabelAutomationTesting = wait
-				.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector("title"))));
+		WebElement LabelAutomationTesting = driver.findElement(By.cssSelector("title"));
 		System.out.println(LabelAutomationTesting.getText());
 
 		// Web Element by Class Name
