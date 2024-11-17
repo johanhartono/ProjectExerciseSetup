@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Web Driver with options]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Web Driver with Options(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="Selenium2.main">
+        <methods>
+          <include name="main" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- Selenium2.main -->
+    </classes>
+  </test> <!-- Web Driver with Options(failed) -->
+</suite> <!-- Failed suite [Web Driver with options] -->
