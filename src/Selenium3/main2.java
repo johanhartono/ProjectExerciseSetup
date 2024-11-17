@@ -95,6 +95,7 @@ public class main2 {
 		// Web Element by ID
 		WebElement UserName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("name"))));
 		UserName.sendKeys("Johan");
+
 		WebElement UserEmail = driver.findElement(By.id("email"));
 		UserEmail.sendKeys("johan@johan.com");
 

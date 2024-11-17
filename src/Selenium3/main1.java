@@ -86,17 +86,18 @@ public class main1 {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
 		// 3. Web Elements
-		
+
 		// Web Element by ID
 		WebElement UserName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("name"))));
 		UserName.sendKeys("Johan");
+
 		WebElement UserEmail = driver.findElement(By.id("email"));
 		UserEmail.sendKeys("johan@johan.com");
 
 		// Web Element by Name/cssSelector
 		WebElement LabelAutomationTesting = driver.findElement(By.cssSelector("title"));
 		System.out.println(LabelAutomationTesting.getText());
-		
+
 		// Web Element by Class Name
 		WebElement TitleName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.className("entry-title"))));
 		System.out.println(TitleName.getText());
@@ -106,15 +107,18 @@ public class main1 {
 		System.out.println(StartTag.getText());
 
 		// Web Element by Link Text
-		WebElement Errorcode = wait.until(ExpectedConditions.visibilityOfElementLocated((By.linkText("Errorcode 400"))));
+		WebElement Errorcode = wait
+				.until(ExpectedConditions.visibilityOfElementLocated((By.linkText("Errorcode 400"))));
 		System.out.println(Errorcode.getText());
 
 		// Web Element by partial Link Text
-		WebElement ErrorCode400 = wait.until(ExpectedConditions.visibilityOfElementLocated((By.partialLinkText("400"))));
+		WebElement ErrorCode400 = wait
+				.until(ExpectedConditions.visibilityOfElementLocated((By.partialLinkText("400"))));
 		System.out.println(ErrorCode400.getText());
 
 		// Web Element by XPath
-		WebElement UserPhone = wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//input[@id='phone']"))));
+		WebElement UserPhone = wait
+				.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//input[@id='phone']"))));
 		UserPhone.sendKeys("0812345678");
 
 		// 4. Ending

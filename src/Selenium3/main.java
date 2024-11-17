@@ -84,10 +84,11 @@ public class main {
 		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(20));
 
 		// 3. Web Elements
-		
+
 		// Web Element by ID
 		WebElement UserName = driver.findElement(By.id("name"));
 		UserName.sendKeys("Johan");
+
 		WebElement UserEmail = driver.findElement(By.id("email"));
 		UserEmail.sendKeys("johan@johan.com");
 
