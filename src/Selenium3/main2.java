@@ -24,6 +24,7 @@
 package Selenium3;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -36,12 +37,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Setup.utils;
 
-public class main {
+public class main2 {
 
 	WebDriver driver;
 
@@ -81,38 +85,43 @@ public class main {
 		driver.get(utils.webUrl);
 		driver.getTitle();
 		// driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(20));
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
 		// 3. Web Elements
-		
+
 		// Web Element by ID
-		WebElement UserName = driver.findElement(By.id("name"));
+		WebElement UserName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("name"))));
 		UserName.sendKeys("Johan");
 		WebElement UserEmail = driver.findElement(By.id("email"));
 		UserEmail.sendKeys("johan@johan.com");
 
 		// Web Element by Name/cssSelector
-		WebElement LabelAutomationTesting = driver.findElement(By.cssSelector("title"));
+		WebElement LabelAutomationTesting = wait
+				.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector("title"))));
 		System.out.println(LabelAutomationTesting.getText());
 
 		// Web Element by Class Name
-		WebElement TitleName = driver.findElement(By.className("entry-title"));
+		WebElement TitleName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.className("entry-title"))));
 		System.out.println(TitleName.getText());
 
 		// Web Element by tagName
-		WebElement StartTag = driver.findElement(By.tagName("button"));
+		WebElement StartTag = wait.until(ExpectedConditions.visibilityOfElementLocated((By.tagName("button"))));
 		System.out.println(StartTag.getText());
 
 		// Web Element by Link Text
-		WebElement Errorcode = driver.findElement(By.linkText("Errorcode 400"));
+		WebElement Errorcode = wait
+				.until(ExpectedConditions.visibilityOfElementLocated((By.linkText("Errorcode 400"))));
 		System.out.println(Errorcode.getText());
 
 		// Web Element by partial Link Text
-		WebElement ErrorCode400 = driver.findElement(By.partialLinkText("400"));
+		WebElement ErrorCode400 = wait
+				.until(ExpectedConditions.visibilityOfElementLocated((By.partialLinkText("400"))));
 		System.out.println(ErrorCode400.getText());
 
 		// Web Element by XPath
-		WebElement UserPhone = driver.findElement(By.xpath("//input[@id='phone']"));
+		WebElement UserPhone = wait
+				.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//input[@id='phone']"))));
 		UserPhone.sendKeys("0812345678");
 
 		// 4. Ending
