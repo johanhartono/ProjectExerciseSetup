@@ -21,6 +21,24 @@
 //2. Explicit
 //3. Fluent
 
+//Selenium WebElements Attribute Extension
+// click() command
+// sendKeys() Command
+// getText() Command
+// getAttribute() Command
+// clear() Command
+// isDisplayed() Command
+// isEnabled() Command
+// getLocation() Commmand
+// IsSelected() Command
+// submit() Command
+// getSize() Command
+
+//Selenium Asserts
+// https://himanshu-sheth.medium.com/how-to-use-assert-and-verify-in-selenium-webdriver-e13480315f32
+// 1. Hard Asserts stop at the point, won't continue next
+// 3. Soft Asserts still continue next
+
 package selenium4;
 
 import java.time.Duration;
@@ -38,13 +56,17 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
+import org.testng.asserts.SoftAssert;
 
 import Setup.utils;
 
 public class main {
 
 	WebDriver driver;
-
+	Assertion hardAssert = new Assertion();
+	Assertion softAssert = new SoftAssert();
+	
 	@SuppressWarnings("deprecation")
 	@Test
 	@Parameters("browser")
@@ -64,16 +86,19 @@ public class main {
 			driver = new ChromeDriver(options);
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
+			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-			options.addArguments("--kiosk"); // Open Browser in maximized mode
+			//options.addArguments("--kiosk"); // Open Browser in maximized mode
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
-			options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
+			options.addArguments("--start-maximized");
+			options.setBinary("C:\\Program Files (x86)"
+					+ "\\Microsoft\\Edge\\Application\\msedge.exe");
 			driver = new EdgeDriver(options);
 		} else if (browser.equalsIgnoreCase("ie")) {
 			InternetExplorerOptions options = new InternetExplorerOptions();
-			options.getBrowserName();
+				options.getBrowserName();
 			driver = new InternetExplorerDriver(options);
 		}
 
@@ -87,10 +112,30 @@ public class main {
 
 		// Web Element by ID
 		WebElement UserName = driver.findElement(By.id("name"));
+		UserName.click();
+		UserName.clear();
 		UserName.sendKeys("Johan");
+		System.out.println(UserName.getAccessibleName());
+		System.out.println(UserName.getAttribute(browser));
+		System.out.println(UserName.isDisplayed());
+		System.out.println(UserName.isEnabled());
+		System.out.println(UserName.getLocation());
+		System.out.println(UserName.getTagName());
+		System.out.println(UserName.getSize());
+		
+
 
 		WebElement UserEmail = driver.findElement(By.id("email"));
+		UserEmail.click();
+		UserEmail.clear();
 		UserEmail.sendKeys("johan@johan.com");
+		System.out.println(UserEmail.getAccessibleName());
+		System.out.println(UserEmail.getAttribute(browser));
+		System.out.println(UserEmail.isDisplayed());
+		System.out.println(UserEmail.isEnabled());
+		System.out.println(UserEmail.getLocation());
+		System.out.println(UserEmail.getTagName());
+		System.out.println(UserEmail.getSize());
 
 		// Web Element by Name/cssSelector
 		WebElement LabelAutomationTesting = driver.findElement(By.cssSelector("title"));
@@ -99,10 +144,13 @@ public class main {
 		// Web Element by Class Name
 		WebElement TitleName = driver.findElement(By.className("entry-title"));
 		System.out.println(TitleName.getText());
+		//hardAssert.assertEquals(TitleName.getText(), "GUI Element");
+		softAssert.assertEquals(TitleName.getText(), "GUI Element");
 
 		// Web Element by tagName
 		WebElement StartTag = driver.findElement(By.tagName("button"));
 		System.out.println(StartTag.getText());
+		
 
 		// Web Element by Link Text
 		WebElement Errorcode = driver.findElement(By.linkText("Errorcode 400"));

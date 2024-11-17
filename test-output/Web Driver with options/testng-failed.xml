@@ -4,11 +4,11 @@
   <test thread-count="5" name="Web Driver with Options(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="Selenium3.main1">
+      <class name="selenium4.main">
         <methods>
           <include name="main" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Selenium3.main1 -->
+      </class> <!-- selenium4.main -->
     </classes>
   </test> <!-- Web Driver with Options(failed) -->
 </suite> <!-- Failed suite [Web Driver with options] -->

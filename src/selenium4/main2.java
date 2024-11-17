@@ -95,9 +95,24 @@ public class main2 {
 		// Web Element by ID
 		WebElement UserName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("name"))));
 		UserName.sendKeys("Johan");
-
+		System.out.println(UserName.getAccessibleName());
+		System.out.println(UserName.getAttribute(browser));
+		System.out.println(UserName.isDisplayed());
+		System.out.println(UserName.isEnabled());
+		System.out.println(UserName.getLocation());
+		System.out.println(UserName.getTagName());
+		System.out.println(UserName.getSize());
+		
 		WebElement UserEmail = driver.findElement(By.id("email"));
 		UserEmail.sendKeys("johan@johan.com");
+		System.out.println(UserEmail.getAccessibleName());
+		System.out.println(UserEmail.getAttribute(browser));
+		System.out.println(UserEmail.isDisplayed());
+		System.out.println(UserEmail.isEnabled());
+		System.out.println(UserEmail.getLocation());
+		System.out.println(UserEmail.getTagName());
+		System.out.println(UserEmail.getSize());
+
 
 		// Web Element by Name/cssSelector
 		WebElement LabelAutomationTesting = driver.findElement(By.cssSelector("title"));
