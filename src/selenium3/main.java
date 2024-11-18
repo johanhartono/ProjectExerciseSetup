@@ -39,11 +39,12 @@
 // 1. Hard Asserts stop at the point, won't continue next
 // 3. Soft Asserts still continue next
 
-package selenium4;
+package selenium3;
 
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -73,34 +74,36 @@ public class main {
 	public void main(String browser) throws Exception {
 
 		// 1.Define selected Browser Driver
-		if (browser.equalsIgnoreCase("chrome")) {
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--start-maximized");
-			options.addArguments("--incognito");
-			options.addArguments("--disable-infobars");
-			options.addArguments("--disable-search-engine-choice-screen");
-			options.addArguments(
-					"--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
-			// options.addArguments("--headless"); // for github CLI/linux/others without
-			// GUI
-			driver = new ChromeDriver(options);
-		} else if (browser.equalsIgnoreCase("firefox")) {
-			FirefoxOptions options = new FirefoxOptions();
-			options.addArguments("--start-maximized");
-			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-			//options.addArguments("--kiosk"); // Open Browser in maximized mode
-			driver = new FirefoxDriver(options);
-		} else if (browser.equalsIgnoreCase("edge")) {
-			EdgeOptions options = new EdgeOptions();
-			options.addArguments("--start-maximized");
-			options.setBinary("C:\\Program Files (x86)"
-					+ "\\Microsoft\\Edge\\Application\\msedge.exe");
-			driver = new EdgeDriver(options);
-		} else if (browser.equalsIgnoreCase("ie")) {
-			InternetExplorerOptions options = new InternetExplorerOptions();
-				options.getBrowserName();
-			driver = new InternetExplorerDriver(options);
-		}
+				if (browser.equalsIgnoreCase("chrome")) {
+					ChromeOptions options = new ChromeOptions();
+					options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+					options.setEnableDownloads(true);
+					options.addArguments("--start-maximized");
+					options.addArguments("--incognito");
+					options.addArguments("--disable-infobars");
+					options.addArguments("--disable-search-engine-choice-screen");
+					options.addArguments(
+							"--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
+					// options.addArguments("--headless"); // for github CLI/linux/others without
+					// GUI
+					driver = new ChromeDriver(options);
+				} else if (browser.equalsIgnoreCase("firefox")) {
+					FirefoxOptions options = new FirefoxOptions();
+					options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
+					//options.addArguments("-headless");
+					// options.addArguments("--kiosk"); //Open Browser in maximized mode no close
+					// button
+					driver = new FirefoxDriver(options);
+				} else if (browser.equalsIgnoreCase("edge")) {
+					EdgeOptions options = new EdgeOptions();
+					options.addArguments("--start-maximized");
+					options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
+					driver = new EdgeDriver(options);
+				} else if (browser.equalsIgnoreCase("ie")) {
+					InternetExplorerOptions options = new InternetExplorerOptions();
+					options.getBrowserName();
+					driver = new InternetExplorerDriver(options);
+				}
 
 		// 2.get Browser URL
 		driver.get(utils.webUrl);

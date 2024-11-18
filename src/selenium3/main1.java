@@ -21,12 +21,12 @@
 //2. Explicit
 //3. Fluent
 
-package selenium4;
+package selenium3;
 
 import java.time.Duration;
-import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,14 +38,13 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Setup.utils;
 
-public class main2 {
+public class main1 {
 
 	WebDriver driver;
 
@@ -57,6 +56,8 @@ public class main2 {
 		// 1.Define selected Browser Driver
 		if (browser.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			options.setEnableDownloads(true);
 			options.addArguments("--start-maximized");
 			options.addArguments("--incognito");
 			options.addArguments("--disable-infobars");
@@ -68,9 +69,10 @@ public class main2 {
 			driver = new ChromeDriver(options);
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
-			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-			options.addArguments("--kiosk"); // Open Browser in maximized mode
+			// options.addArguments("-headless");
+			// options.addArguments("--kiosk"); //Open Browser in maximized mode no close
+			// button
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
@@ -87,8 +89,7 @@ public class main2 {
 		driver.get(utils.webUrl);
 		driver.getTitle();
 		// driver.manage().window().maximize();
-		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
 		// 3. Web Elements
 
@@ -102,7 +103,7 @@ public class main2 {
 		System.out.println(UserName.getLocation());
 		System.out.println(UserName.getTagName());
 		System.out.println(UserName.getSize());
-		
+
 		WebElement UserEmail = driver.findElement(By.id("email"));
 		UserEmail.sendKeys("johan@johan.com");
 		System.out.println(UserEmail.getAccessibleName());
@@ -112,7 +113,6 @@ public class main2 {
 		System.out.println(UserEmail.getLocation());
 		System.out.println(UserEmail.getTagName());
 		System.out.println(UserEmail.getSize());
-
 
 		// Web Element by Name/cssSelector
 		WebElement LabelAutomationTesting = driver.findElement(By.cssSelector("title"));

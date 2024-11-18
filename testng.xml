@@ -5,7 +5,7 @@
 	<test name="Web Driver with Options">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="selenium4.main" />
+			<class name="selenium3.main" />
 		</classes>
 	</test>
 
