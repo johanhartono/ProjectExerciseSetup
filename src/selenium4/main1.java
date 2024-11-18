@@ -26,6 +26,7 @@ package selenium4;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -55,6 +56,8 @@ public class main1 {
 		// 1.Define selected Browser Driver
 		if (browser.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			options.setEnableDownloads(true);
 			options.addArguments("--start-maximized");
 			options.addArguments("--incognito");
 			options.addArguments("--disable-infobars");
@@ -67,10 +70,13 @@ public class main1 {
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
 			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-			options.addArguments("--kiosk"); // Open Browser in maximized mode
+			// options.addArguments("-headless");
+			// options.addArguments("--kiosk"); //Open Browser in maximized mode no close
+			// button
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
+			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
 			driver = new EdgeDriver(options);
 		} else if (browser.equalsIgnoreCase("ie")) {

@@ -44,6 +44,7 @@ package selenium4;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -66,7 +67,7 @@ public class main {
 	WebDriver driver;
 	Assertion hardAssert = new Assertion();
 	Assertion softAssert = new SoftAssert();
-	
+
 	@SuppressWarnings("deprecation")
 	@Test
 	@Parameters("browser")
@@ -75,6 +76,8 @@ public class main {
 		// 1.Define selected Browser Driver
 		if (browser.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			options.setEnableDownloads(true);
 			options.addArguments("--start-maximized");
 			options.addArguments("--incognito");
 			options.addArguments("--disable-infobars");
@@ -86,19 +89,19 @@ public class main {
 			driver = new ChromeDriver(options);
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			FirefoxOptions options = new FirefoxOptions();
-			options.addArguments("--start-maximized");
 			options.setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-			//options.addArguments("--kiosk"); // Open Browser in maximized mode
+			// options.addArguments("-headless");
+			// options.addArguments("--kiosk"); //Open Browser in maximized mode no close
+			// button
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
 			EdgeOptions options = new EdgeOptions();
 			options.addArguments("--start-maximized");
-			options.setBinary("C:\\Program Files (x86)"
-					+ "\\Microsoft\\Edge\\Application\\msedge.exe");
+			options.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe");
 			driver = new EdgeDriver(options);
 		} else if (browser.equalsIgnoreCase("ie")) {
 			InternetExplorerOptions options = new InternetExplorerOptions();
-				options.getBrowserName();
+			options.getBrowserName();
 			driver = new InternetExplorerDriver(options);
 		}
 
@@ -122,8 +125,6 @@ public class main {
 		System.out.println(UserName.getLocation());
 		System.out.println(UserName.getTagName());
 		System.out.println(UserName.getSize());
-		
-
 
 		WebElement UserEmail = driver.findElement(By.id("email"));
 		UserEmail.click();
@@ -144,13 +145,12 @@ public class main {
 		// Web Element by Class Name
 		WebElement TitleName = driver.findElement(By.className("entry-title"));
 		System.out.println(TitleName.getText());
-		//hardAssert.assertEquals(TitleName.getText(), "GUI Element");
+		// hardAssert.assertEquals(TitleName.getText(), "GUI Element");
 		softAssert.assertEquals(TitleName.getText(), "GUI Element");
 
 		// Web Element by tagName
 		WebElement StartTag = driver.findElement(By.tagName("button"));
 		System.out.println(StartTag.getText());
-		
 
 		// Web Element by Link Text
 		WebElement Errorcode = driver.findElement(By.linkText("Errorcode 400"));
