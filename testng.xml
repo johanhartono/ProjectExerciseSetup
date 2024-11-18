@@ -3,9 +3,9 @@
 <suite name="Web Driver with options">
 
 	<test name="Web Driver with Options">
-		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-			<class name="selenium4.main" />
+			<class name="selenium5.main3" />
 		</classes>
 	</test>
 

@@ -21,10 +21,27 @@
 //2. Explicit
 //3. Fluent
 
-package selenium4;
+//Selenium WebElements Attribute Extension
+// click() command
+// sendKeys() Command
+// getText() Command
+// getAttribute() Command
+// clear() Command
+// isDisplayed() Command
+// isEnabled() Command
+// getLocation() Commmand
+// IsSelected() Command
+// submit() Command
+// getSize() Command
+
+//Selenium Asserts
+// https://himanshu-sheth.medium.com/how-to-use-assert-and-verify-in-selenium-webdriver-e13480315f32
+// 1. Hard Asserts stop at the point, won't continue next
+// 3. Soft Asserts still continue next
+
+package selenium5;
 
 import java.time.Duration;
-import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
@@ -38,17 +55,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
+import org.testng.asserts.SoftAssert;
 
 import Setup.utils;
 
-public class main2 {
+public class main {
 
 	WebDriver driver;
+	Assertion hardAssert = new Assertion();
+	Assertion softAssert = new SoftAssert();
 
 	@SuppressWarnings("deprecation")
 	@Test
@@ -91,13 +109,14 @@ public class main2 {
 		driver.get(utils.webUrl);
 		driver.getTitle();
 		// driver.manage().window().maximize();
-		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
+		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(20));
 
 		// 3. Web Elements
 
 		// Web Element by ID
-		WebElement UserName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("name"))));
+		WebElement UserName = driver.findElement(By.id("name"));
+		UserName.click();
+		UserName.clear();
 		UserName.sendKeys("Johan");
 		System.out.println(UserName.getAccessibleName());
 		System.out.println(UserName.getAttribute(browser));
@@ -108,6 +127,8 @@ public class main2 {
 		System.out.println(UserName.getSize());
 
 		WebElement UserEmail = driver.findElement(By.id("email"));
+		UserEmail.click();
+		UserEmail.clear();
 		UserEmail.sendKeys("johan@johan.com");
 		System.out.println(UserEmail.getAccessibleName());
 		System.out.println(UserEmail.getAttribute(browser));
@@ -122,26 +143,25 @@ public class main2 {
 		System.out.println(LabelAutomationTesting.getText());
 
 		// Web Element by Class Name
-		WebElement TitleName = wait.until(ExpectedConditions.visibilityOfElementLocated((By.className("entry-title"))));
+		WebElement TitleName = driver.findElement(By.className("entry-title"));
 		System.out.println(TitleName.getText());
+		// hardAssert.assertEquals(TitleName.getText(), "GUI Element");
+		softAssert.assertEquals(TitleName.getText(), "GUI Element");
 
 		// Web Element by tagName
-		WebElement StartTag = wait.until(ExpectedConditions.visibilityOfElementLocated((By.tagName("button"))));
+		WebElement StartTag = driver.findElement(By.tagName("button"));
 		System.out.println(StartTag.getText());
 
 		// Web Element by Link Text
-		WebElement Errorcode = wait
-				.until(ExpectedConditions.visibilityOfElementLocated((By.linkText("Errorcode 400"))));
+		WebElement Errorcode = driver.findElement(By.linkText("Errorcode 400"));
 		System.out.println(Errorcode.getText());
 
 		// Web Element by partial Link Text
-		WebElement ErrorCode400 = wait
-				.until(ExpectedConditions.visibilityOfElementLocated((By.partialLinkText("400"))));
+		WebElement ErrorCode400 = driver.findElement(By.partialLinkText("400"));
 		System.out.println(ErrorCode400.getText());
 
 		// Web Element by XPath
-		WebElement UserPhone = wait
-				.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//input[@id='phone']"))));
+		WebElement UserPhone = driver.findElement(By.xpath("//input[@id='phone']"));
 		UserPhone.sendKeys("0812345678");
 
 		// 4. Ending

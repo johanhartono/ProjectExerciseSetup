@@ -39,11 +39,25 @@
 // 1. Hard Asserts stop at the point, won't continue next
 // 3. Soft Asserts still continue next
 
-package selenium4;
+// Keyboards and Mouse Methods Action Class
+// Keyboard Methods
+// Perform
+// ESC
+// TAB
+// ENTER
+// ARROW_DOWN
+// ARROW_UP
+// KEYS.DOWN
+// KEYS.UP
+// PAGE_DOWN
+// PAGE_UP
+
+package selenium5;
 
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,6 +69,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
@@ -62,7 +77,7 @@ import org.testng.asserts.SoftAssert;
 
 import Setup.utils;
 
-public class main {
+public class main3 {
 
 	WebDriver driver;
 	Assertion hardAssert = new Assertion();
@@ -106,64 +121,18 @@ public class main {
 		}
 
 		// 2.get Browser URL
-		driver.get(utils.webUrl);
+		driver.get(utils.webUrl1);
 		driver.getTitle();
 		// driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(20));
 
 		// 3. Web Elements
-
-		// Web Element by ID
-		WebElement UserName = driver.findElement(By.id("name"));
-		UserName.click();
-		UserName.clear();
-		UserName.sendKeys("Johan");
-		System.out.println(UserName.getAccessibleName());
-		System.out.println(UserName.getAttribute(browser));
-		System.out.println(UserName.isDisplayed());
-		System.out.println(UserName.isEnabled());
-		System.out.println(UserName.getLocation());
-		System.out.println(UserName.getTagName());
-		System.out.println(UserName.getSize());
-
-		WebElement UserEmail = driver.findElement(By.id("email"));
-		UserEmail.click();
-		UserEmail.clear();
-		UserEmail.sendKeys("johan@johan.com");
-		System.out.println(UserEmail.getAccessibleName());
-		System.out.println(UserEmail.getAttribute(browser));
-		System.out.println(UserEmail.isDisplayed());
-		System.out.println(UserEmail.isEnabled());
-		System.out.println(UserEmail.getLocation());
-		System.out.println(UserEmail.getTagName());
-		System.out.println(UserEmail.getSize());
-
-		// Web Element by Name/cssSelector
-		WebElement LabelAutomationTesting = driver.findElement(By.cssSelector("title"));
-		System.out.println(LabelAutomationTesting.getText());
-
-		// Web Element by Class Name
-		WebElement TitleName = driver.findElement(By.className("entry-title"));
-		System.out.println(TitleName.getText());
-		// hardAssert.assertEquals(TitleName.getText(), "GUI Element");
-		softAssert.assertEquals(TitleName.getText(), "GUI Element");
-
-		// Web Element by tagName
-		WebElement StartTag = driver.findElement(By.tagName("button"));
-		System.out.println(StartTag.getText());
-
-		// Web Element by Link Text
-		WebElement Errorcode = driver.findElement(By.linkText("Errorcode 400"));
-		System.out.println(Errorcode.getText());
-
-		// Web Element by partial Link Text
-		WebElement ErrorCode400 = driver.findElement(By.partialLinkText("400"));
-		System.out.println(ErrorCode400.getText());
-
-		// Web Element by XPath
-		WebElement UserPhone = driver.findElement(By.xpath("//input[@id='phone']"));
-		UserPhone.sendKeys("0812345678");
-
+		Actions ac = new Actions(driver);
+		driver.findElement(By.name("q")).sendKeys("Selenium");
+		ac.sendKeys(Keys.ENTER);
+		//ac.sendKeys(Keys.ARROW_DOWN);
+		//ac.sendKeys(Keys.ARROW_DOWN);
+		
 		// 4. Ending
 		Thread.sleep(10000);
 		// driver.quit();

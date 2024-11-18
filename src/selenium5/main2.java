@@ -21,9 +21,10 @@
 //2. Explicit
 //3. Fluent
 
-package selenium4;
+package selenium5;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
@@ -38,13 +39,14 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import Setup.utils;
 
-public class main1 {
+public class main2 {
 
 	WebDriver driver;
 
@@ -89,7 +91,8 @@ public class main1 {
 		driver.get(utils.webUrl);
 		driver.getTitle();
 		// driver.manage().window().maximize();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(5)).ignoring(NoSuchElementException.class);
 
 		// 3. Web Elements
 

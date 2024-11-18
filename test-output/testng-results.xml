@@ -2,23 +2,23 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-17T15:45:33 WIB" name="Web Driver with options" finished-at="2024-11-17T15:45:49 WIB" duration-ms="15914">
+  <suite started-at="2024-11-18T14:45:34 WIB" name="Web Driver with options" finished-at="2024-11-18T14:45:53 WIB" duration-ms="19631">
     <groups>
     </groups>
-    <test started-at="2024-11-17T15:45:33 WIB" name="Web Driver with Options" finished-at="2024-11-17T15:45:49 WIB" duration-ms="15914">
-      <class name="selenium4.main">
-        <test-method signature="main(java.lang.String)[pri:0, instance:selenium4.main@33bc72d1]" started-at="2024-11-17T15:45:33 WIB" name="main" finished-at="2024-11-17T15:45:49 WIB" duration-ms="15856" status="PASS">
+    <test started-at="2024-11-18T14:45:34 WIB" name="Web Driver with Options" finished-at="2024-11-18T14:45:53 WIB" duration-ms="19631">
+      <class name="selenium5.main3">
+        <test-method signature="main(java.lang.String)[pri:0, instance:selenium5.main3@33bc72d1]" started-at="2024-11-18T14:45:34 WIB" name="main" finished-at="2024-11-18T14:45:53 WIB" duration-ms="19540" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[firefox]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- main -->
-      </class> <!-- selenium4.main -->
+      </class> <!-- selenium5.main3 -->
     </test> <!-- Web Driver with Options -->
   </suite> <!-- Web Driver with options -->
 </testng-results>
