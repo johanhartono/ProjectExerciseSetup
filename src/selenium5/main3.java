@@ -94,7 +94,7 @@ public class main3 {
 			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			options.setEnableDownloads(true);
 			options.addArguments("--start-maximized");
-			options.addArguments("--incognito");
+			//options.addArguments("--incognito");
 			options.addArguments("--disable-infobars");
 			options.addArguments("--disable-search-engine-choice-screen");
 			options.addArguments(
@@ -121,20 +121,28 @@ public class main3 {
 		}
 
 		// 2.get Browser URL
-		driver.get(utils.webUrl1);
+		driver.get(utils.webUrl);
 		driver.getTitle();
 		// driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(20));
 
-		// 3. Web Elements
+		// 3. Web Elements with Keyboards Methods
 		Actions ac = new Actions(driver);
-		driver.findElement(By.name("q")).sendKeys("Selenium");
-		ac.sendKeys(Keys.ENTER);
-		//ac.sendKeys(Keys.ARROW_DOWN);
-		//ac.sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//input[@id='comboBox']")).sendKeys("Item 2");
+		ac.sendKeys(Keys.TAB).perform();
+		ac.sendKeys(Keys.ARROW_DOWN).perform();
+		ac.sendKeys(Keys.ARROW_DOWN).perform();
 		
-		// 4. Ending
-		Thread.sleep(10000);
+		// 4. Web Elements with Mouse Methods
+		///Actions ac1 = new Actions(driver);
+		//driver.findElement(By.xpath("//div[@aria-label='Telusuri dengan suara']//*[name()='svg']"));
+		//ac1.click();
+		// 5. Web Elements with Pen Methods
+		
+		// 6. Web Elements with Wheel Methods
+		
+		// 7. Ending
+		//Thread.sleep(10000);
 		// driver.quit();
 	}
 
