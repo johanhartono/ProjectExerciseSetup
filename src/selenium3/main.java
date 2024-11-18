@@ -34,10 +34,6 @@
 // submit() Command
 // getSize() Command
 
-//Selenium Asserts
-// https://himanshu-sheth.medium.com/how-to-use-assert-and-verify-in-selenium-webdriver-e13480315f32
-// 1. Hard Asserts stop at the point, won't continue next
-// 3. Soft Asserts still continue next
 
 package selenium3;
 
