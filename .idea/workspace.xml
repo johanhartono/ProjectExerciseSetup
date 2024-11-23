@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="294486fc-e6df-4b9c-adcb-b6d1f275e81c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Setup/utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Setup/utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +20,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="selenium1" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -33,31 +39,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.main (1).executor": "Run",
-    "Application.main.executor": "Run",
-    "JUnit.RestAssured in testFramework.executor": "Run",
-    "JUnit.RestTrain.executor": "Run",
-    "JUnit.RestTrain.getUserList.executor": "Run",
-    "JUnit.apiDELETE.DeleteData.executor": "Run",
-    "JUnit.apiGET.getListOfData.executor": "Run",
-    "JUnit.apiGET.getQueryaData.executor": "Run",
-    "JUnit.apiPOST.CreateData.executor": "Run",
-    "JUnit.apiPOST.executor": "Run",
-    "JUnit.apiPUT.CreateData.executor": "Run",
-    "JUnit.apiPUT.UpdatePartialData.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/SDET/ProjectExerciseSetup",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RestAssured in testFramework.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RestTrain.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RestTrain.getUserList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.apiDELETE.DeleteData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.apiGET.getListOfData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.apiGET.getQueryaData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.apiPOST.CreateData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.apiPOST.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.apiPUT.CreateData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.apiPUT.UpdatePartialData.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TestNG.D:/SDET/ProjectExerciseSetup/testng.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.main3.main.executor&quot;: &quot;Run&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;selenium5&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SDET/ProjectExerciseSetup&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.main">
+}</component>
+  <component name="RunManager" selected="TestNG.D:/SDET/ProjectExerciseSetup/testng.xml">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Selenium1.main" />
       <module name="com" />
@@ -87,38 +96,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="apiPOST.CreateData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="testFramework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="RestAssured.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="RestAssured" />
-      <option name="MAIN_CLASS_NAME" value="RestAssured.apiPOST" />
-      <option name="METHOD_NAME" value="CreateData" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="apiPUT.CreateData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="testFramework" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="RestAssured.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="RestAssured" />
-      <option name="MAIN_CLASS_NAME" value="RestAssured.apiPUT" />
-      <option name="METHOD_NAME" value="CreateData" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="apiPUT.UpdatePartialData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="testFramework" />
       <extension name="coverage">
@@ -135,13 +112,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="D:/SDET/ProjectExerciseSetup/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main3.main" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="selenium5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="selenium5" />
+      <option name="MAIN_CLASS_NAME" value="selenium5.main3" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main" />
-        <item itemvalue="JUnit.apiDELETE.DeleteData" />
+        <item itemvalue="TestNG.main3.main" />
+        <item itemvalue="TestNG.D:/SDET/ProjectExerciseSetup/testng.xml" />
         <item itemvalue="JUnit.apiPUT.UpdatePartialData" />
-        <item itemvalue="JUnit.apiPUT.CreateData" />
-        <item itemvalue="JUnit.apiPOST.CreateData" />
+        <item itemvalue="JUnit.apiDELETE.DeleteData" />
+        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
@@ -157,11 +162,38 @@
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/selenium3" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
