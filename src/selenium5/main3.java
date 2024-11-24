@@ -14,7 +14,7 @@
 // 4. By TagName
 // 5. By Link Text 
 // 6. Partial Link Text
-// 7. by XPath (Most powerfull way among the others)
+// 7. by XPath (Most powerful way among the others)
 
 //Selenium Waits Types
 //1. Implicit
@@ -29,7 +29,7 @@
 // clear() Command
 // isDisplayed() Command
 // isEnabled() Command
-// getLocation() Commmand
+// getLocation() Command
 // IsSelected() Command
 // submit() Command
 // getSize() Command
@@ -52,6 +52,16 @@
 // PAGE_DOWN
 // PAGE_UP
 
+// Mouse Methods
+// click()
+// doubleClick()
+// clickAndHold()
+// contextClick()
+// dragAndDrop()
+// moveToElement()
+// moveByOffset()
+// release()
+
 package selenium5;
 
 import java.time.Duration;
@@ -69,7 +79,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.PointerInput;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
@@ -83,7 +95,7 @@ public class main3 {
 	Assertion hardAssert = new Assertion();
 	Assertion softAssert = new SoftAssert();
 
-	@SuppressWarnings("deprecation")
+
 	@Test
 	@Parameters("browser")
 	public void main(String browser) throws Exception {
@@ -128,21 +140,67 @@ public class main3 {
 
 		// 3. Web Elements with Keyboards Methods
 		Actions ac = new Actions(driver);
-		driver.findElement(By.xpath("//input[@id='comboBox']")).sendKeys("Item 2");
-		ac.sendKeys(Keys.TAB).perform();
-		ac.sendKeys(Keys.ARROW_DOWN).perform();
-		ac.sendKeys(Keys.ARROW_DOWN).perform();
-		
+		driver.findElement(By.xpath("//input[@id='name']")).sendKeys("Johan");
+
+		int position = 10;
+		driver.findElement(By.xpath("//select[@id='country']")).click();
+		for(int i = 0; i <= position; i++){
+			ac.sendKeys(Keys.DOWN).build().perform();//press down arrow key
+		}
+		ac.sendKeys(Keys.ENTER).build().perform();//press enter
+
 		// 4. Web Elements with Mouse Methods
-		///Actions ac1 = new Actions(driver);
-		//driver.findElement(By.xpath("//div[@aria-label='Telusuri dengan suara']//*[name()='svg']"));
-		//ac1.click();
+
+		//Drag and Drop
+		//WebElement on which drag and drop operation needs to be performed
+		//WebElement fromElement = driver.findElement(By Locator of fromElement);
+
+		//WebElement to which the above object is dropped
+		//		WebElement toElement = driver.findElement(By Locator of toElement);
+
+		//Creating object of Actions class to build composite actions
+		//		Actions builder = new Actions(driver);
+
+		//Building a drag and drop action
+		//		Action dragAndDrop = builder.clickAndHold(fromElement)
+		//				.moveToElement(toElement)
+		//				.release(toElement)
+		//				.build();
+
+		//Performing the drag and drop action
+		//		dragAndDrop.perform();
+		Actions builder = new Actions(driver);
+		Action dragAndDrop = builder.clickAndHold(driver.findElement(By.xpath("//div[@id='draggable']")))
+				.moveToElement(driver.findElement(By.xpath("//div[@id='droppable']")))
+				.release(driver.findElement(By.xpath("//div[@id='droppable']")))
+				.build();
+		dragAndDrop.perform();
+
 		// 5. Web Elements with Pen Methods
-		
+		// Full Example: https://github.com/SeleniumHQ/seleniumhq.github.io/blob/trunk/examples/java/src/test/java/dev/selenium/actions_api/PenTest.java#L26-L33
+		//
+		// WebElement pointerArea = driver.findElement(By.id("pointerArea"));
+		// new Actions(driver)
+		// 		.setActivePointer(PointerInput.Kind.PEN, "default pen")
+		// 		.moveToElement(pointerArea)
+		// 		.clickAndHold()
+		// 		.moveByOffset(2, 2)
+		// 		.release()
+		// 		.perform();
+		//
 		// 6. Web Elements with Wheel Methods
-		
+		// Full Example: https://github.com/SeleniumHQ/seleniumhq.github.io/blob/trunk/examples/java/src/test/java/dev/selenium/actions_api/WheelTest.java#L17-L20
+		// WebElement iframe = driver.findElement(By.tagName("iframe"));
+		// new Actions(driver)
+		//		.scrollToElement(iframe)
+		//		.perform();
+		//
+		driver.findElement(By.xpath("//input[@id='comboBox']")).sendKeys("Item 3");
+		//driver.findElement(By.xpath("//input[@id='comboBox']")).click();
+		//ac.scrollToElement(driver.findElement(By.xpath("//input[@id='comboBox']"))).perform();
+		//ac.click().perform();
 		// 7. Ending
-		//Thread.sleep(10000);
+		// Thread.sleep(10000);
 		// driver.quit();
 	}
 
